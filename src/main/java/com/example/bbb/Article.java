@@ -23,7 +23,9 @@ public class Article {
     @Column(columnDefinition = "Text")
     private String content;
 
+    @ManyToOne
     private LocalDateTime createDate;
 
-
+    @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
+    private List<Answer> answerList;
 }
