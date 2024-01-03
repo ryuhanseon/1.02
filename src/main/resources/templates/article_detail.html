@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf">
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 
-</body>
-</html>
 <h1 th:text="${article.subject}"></h1>
 <div th:text="${article.content}"></div>
 
-<form th:action="@{|/answer/create/${article.id}|}" method="post">
+<form th:action="@{|/create/${article.id}|}" method="post">
     <textarea name="content" id="content" rows="15"></textarea>
-    <input type="submit" value="답변등록">
+    <input type="submit" value="등록">
+    <a th:href="@{/article/create}" class="btn btn-primary">리스트로 이동</a>
 </form>
+
+</body>
+</html>
+

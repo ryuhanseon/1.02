@@ -4,10 +4,9 @@ package com.example.bbb;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
@@ -23,9 +22,6 @@ public class Article {
     @Column(columnDefinition = "Text")
     private String content;
 
-    @ManyToOne
+    @CreatedDate
     private LocalDateTime createDate;
-
-    @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
-    private List<Answer> answerList;
 }
